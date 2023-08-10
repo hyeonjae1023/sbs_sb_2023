@@ -8,20 +8,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserHomeController {
 	@RequestMapping("/user/home/main")
 	@ResponseBody
-	public String showMain() {
-		return "안녕하세요";
+	public int showMain() {
+		return 0;
 	}
-	
-	@RequestMapping("/user/home/main2")
-	@ResponseBody
-	public String showMain2() {
-		return "반갑습니다.";
-	}
-	
-	@RequestMapping("/user/home/main3")
-	@ResponseBody
-	public String showMain3() {
-		return "또 만나요.";
-	}
+//	@RequestMapping("/user/home/main1")
+//	@ResponseBody
+//	public int showMain2() {
+//		return 1;
+//	}
+//	@RequestMapping("/user/home/main2")
+//	@ResponseBody
+//	public int showMain3() {
+//		return 2;
+//	}
+//	@RequestMapping("/user/home/main3")
+//	@ResponseBody
+//	public int showMain4() {
+//		return 3;
+//	}
+//	
 	
 }
