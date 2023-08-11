@@ -105,5 +105,16 @@ public class UserArticleController {
 	public List<Article> getArticles() {
 		return  articles;
 	}
+	
+	@RequestMapping("/user/article/getArticle")
+	@ResponseBody
+	public Object getArticleAction(int id) {
+	Article article = getArticle(id);
+		
+		if(article == null) {
+			return id+ "번 게시글이 존재하지 않습니다.";
+		}
+		return  article;
+	}
 	//액션 메서드 끝
 }
