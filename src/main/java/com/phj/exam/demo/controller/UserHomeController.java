@@ -17,6 +17,7 @@ public class UserHomeController {
 	public int getCount() {
 		return count++;
 	}
+	
 	@RequestMapping("/user/home/doSetCount")
 	@ResponseBody
 	public String doSetCount(int count) {
