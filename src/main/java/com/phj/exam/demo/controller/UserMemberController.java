@@ -14,10 +14,16 @@ public class UserMemberController {
 	public UserMemberController(MemberService memberService) {
 		this.memberService = memberService;
 	}
+	
 	@RequestMapping("/user/member/doJoin")
 	@ResponseBody
-	public Member doJoin(String loginId, String loginPw, String name, String nickName, String cellphoneNo, String email) {
+	public Object doJoin(String loginId, String loginPw, String name, String nickName, String cellphoneNo, String email) {
 		int id = memberService.join(loginId, loginPw, name, nickName, cellphoneNo, email);
+		
+		if(id == -1) {
+			return "해당 아이디는 이용 중입니다.";
+			
+		}
 		Member member = memberService.getMemberById(id);
 		return member;
 	}
