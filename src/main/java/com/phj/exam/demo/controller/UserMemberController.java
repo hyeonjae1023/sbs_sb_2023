@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.phj.exam.demo.service.MemberService;
+import com.phj.exam.demo.vo.Member;
 
 @Controller 
 public class UserMemberController {
@@ -15,8 +16,9 @@ public class UserMemberController {
 	}
 	@RequestMapping("/user/member/doJoin")
 	@ResponseBody
-	public String doJoin(String loginId, String loginPw, String nickName, String cellphoneNo, String email) {
-		memberService.join(loginId, loginPw, nickName, cellphoneNo, email);
-		return  "성공.";
+	public Member doJoin(String loginId, String loginPw, String name, String nickName, String cellphoneNo, String email) {
+		int id = memberService.join(loginId, loginPw, name, nickName, cellphoneNo, email);
+		Member member = memberService.getMemberById(id);
+		return member;
 	}
 }
