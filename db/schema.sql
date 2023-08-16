@@ -55,6 +55,7 @@ SET regDate = NOW(),
 updateDate = NOW(),
 loginId = 'admin',
 loginPw = 'admin',
+`authLevel` = 7,
 `name` = '관리자',
 nickName = '관리자',
 cellphoneNo = '01011111111',
@@ -81,3 +82,13 @@ cellphoneNo = '01011112222',
 email = 'user2@gmail.com';
 
 SELECT * FROM `member`;
+
+#게시물 테이블에 회원정보 추가
+ALTER TABLE article ADD COLUMN memberId INT(20) UNSIGNED NOT NULL AFTER `updateDate`;
+
+#기존 게시물의 작성자 2번으로 지정
+UPDATE article
+SET memberId = 2
+WHERE memberId = 0;
+
+SELECT * FROM article;

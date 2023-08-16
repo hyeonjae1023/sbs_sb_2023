@@ -14,7 +14,7 @@ import com.phj.exam.demo.vo.Article;
 @Mapper
 public interface ArticleRepository {
 //	@Insert("INSERT INTO article SET regDate = NOW(), updateDate = NOW(), title = #{title}, `body` = #{body}")
-	public void writeArticle(@Param("title") String title,@Param("body") String body);
+	public void writeArticle(@Param("memberId")int memberId, @Param("title") String title,@Param("body") String body);
 
 //	@Select("SELECT * FROM article WHERE id = #{id}")
 	public Article getArticle(@Param("id") int id);
