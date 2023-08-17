@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller 
 public class UserHomeController {
+	
 	@RequestMapping("/user/home/main")
-	@ResponseBody
-	public String getString() {
+	public String showRoot() {
 
-		return  "Main 입니다.";
+		return  "user/home/main";
 	}
 }
