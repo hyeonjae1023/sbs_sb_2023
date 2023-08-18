@@ -12,15 +12,7 @@
 	`body` = #{body}
 	</insert>
 	
-	<select id="getArticle" resultType="Article">
-	SELECT * 
-	FROM article 
-	WHERE id = #{id}
-	</select>
-	
-	<select id="getArticles" resultType="Article">
-	SELECT * FROM article
-	</select>
+
 	
 	<delete id="removeArticle">
 	DELETE FROM article WHERE id = #{id}

@@ -1,10 +1,23 @@
 @font-face {
-    font-family: 'HakgyoansimWoojuR';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 html > body {
-	font-family:'HakgyoansimWoojuR';
+	font-family: 'IBMPlexSansKR-Regular';
+}
+
+.table-box-type-1 > table th,
+.table-box-type-1 > table td {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+.btn-text-link {
+	color: deepskyblue;
+}
+.btn-text-link:hover {
+	text-decoration: underline;
 }
