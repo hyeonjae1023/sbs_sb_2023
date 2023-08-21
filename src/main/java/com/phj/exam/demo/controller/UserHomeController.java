@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller 
 public class UserHomeController {
 	
-	@RequestMapping("/user/home/main")
+	@RequestMapping("/")
 	public String showRoot() {
 
 		return  "user/home/main";

@@ -25,11 +25,7 @@ public class UserArticleController {
 	@RequestMapping("/usr/article/doAdd")
 	@ResponseBody
 	public ResultData<Article> doAdd(HttpServletRequest req, String title, String body) {
-		Rq rq = new Rq(req);
-		
-		if(rq.isLogined() == false) {
-			return ResultData.from("F-A","로그인 후 이용해 주세요.");
-		}
+		Rq rq = (Rq) req.getAttribute("rq");
 
 		if (Ut.empty(title)) {
 			return ResultData.from("F-1", "title(을)를 작성해주세요.");
@@ -51,7 +47,7 @@ public class UserArticleController {
 	@RequestMapping("/user/article/delete")
 	@ResponseBody
 	public String doDelete(HttpServletRequest req, int id) {
-		Rq rq = new Rq(req);
+		Rq rq = (Rq) req.getAttribute("rq");
 		
 		if(rq.isLogined() == false) {
 			return Ut.jsHistoryback("로그인 후 이용해 주세요.");
@@ -74,7 +70,7 @@ public class UserArticleController {
 	@RequestMapping("/usr/article/getArticle")
 	@ResponseBody
 	public ResultData<Article> getArticle(HttpServletRequest req, int id) {
-		Rq rq = new Rq(req);
+		Rq rq = (Rq) req.getAttribute("rq");
 
 		Article article = articleService.getForprintArticle(rq.getLoginedMemberId(), id);
 
@@ -88,7 +84,7 @@ public class UserArticleController {
 	@RequestMapping("/user/article/modify")
 	@ResponseBody
 	public ResultData<Article> doModify(HttpServletRequest req, int id, String title, String body) {
-		Rq rq = new Rq(req);
+		Rq rq = (Rq) req.getAttribute("rq");
 
 		if(rq.isLogined() == false) {
 			return ResultData.from("F-A","로그인 후 이용해 주세요.");
@@ -111,7 +107,7 @@ public class UserArticleController {
 	
 	@RequestMapping("/user/article/list")
 	public String showList(HttpServletRequest req, Model model) {
-		Rq rq = new Rq(req);
+		Rq rq = (Rq) req.getAttribute("rq");
 
 		List<Article> articles = articleService.getforPrintArticles(rq.getLoginedMemberId());
 
@@ -122,7 +118,7 @@ public class UserArticleController {
 	
 	@RequestMapping("/user/article/detail")
 	public String showDetail(HttpServletRequest req, Model model,int id) {
-		Rq rq = new Rq(req);
+		Rq rq = (Rq) req.getAttribute("rq");
 		
 	Article article = articleService.getForprintArticle(rq.getLoginedMemberId(), id);
 		model.addAttribute("article",article);
