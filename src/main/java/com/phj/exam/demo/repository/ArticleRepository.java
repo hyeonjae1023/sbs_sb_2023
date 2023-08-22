@@ -27,14 +27,19 @@ public interface ArticleRepository {
 	public Article getForprintArticle(@Param("id") int id);
 
 	@Select("""
+			<script>
 			SELECT A.*,
 			M.nickName AS writerName
 			FROM article AS A
 			LEFT JOIN `member` AS M
 			ON A.memberId = M.id
+			<if test="boardId != 0">
+			WHERE A.boardId = #{boardId}
+			</if>
 			ORDER BY A.id DESC
+			</script>
 			""")
-	public List<Article> getforPrintArticles();
+	public List<Article> getforPrintArticles(@Param("boardId") int boardId);
 
 //	@Delete("DELETE FROM article WHERE id = #{id}")
 	public void removeArticle(@Param("id") int id);

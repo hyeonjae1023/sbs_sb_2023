@@ -17,4 +17,13 @@ public class Article {
 	
 	private String writerName;
 	private boolean exta__actorCanDelete;
+	private boolean exta__actorCanModify;
+	
+	public String getRegDateForPrint() {
+		return regDate.substring(2,16);
+	}
+	
+	public String getUpdateDateForPrint() {
+		return updateDate.substring(2,16);
+	}
 }

@@ -31,8 +31,8 @@ public class ArticleService {
 			return article;
 		}
 
-		public List<Article> getforPrintArticles(int actorId) {
-			List<Article> articles = articleRepository.getforPrintArticles();
+		public List<Article> getforPrintArticles(int actorId, int boardId) {
+			List<Article> articles = articleRepository.getforPrintArticles(boardId);
 			
 			for(Article article : articles) {
 				updateforPrintData(actorId, article);
@@ -50,6 +50,9 @@ public class ArticleService {
 			}
 			ResultData actorCanDeleteRd = actorCanDelete(actorId, article);
 			article.setExta__actorCanDelete(actorCanDeleteRd.isSuccess());
+			
+			ResultData actorCanModifyRd = actorCanModify(actorId, article);
+			article.setExta__actorCanModify(actorCanModifyRd.isSuccess());
 			
 		}
 		

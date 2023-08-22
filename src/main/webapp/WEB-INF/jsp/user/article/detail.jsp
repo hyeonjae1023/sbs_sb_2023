@@ -17,11 +17,11 @@
             </tr>
              <tr>
               <th>작성날짜</th>
-              <th>${article.regDate.substring(2, 16)}</th>
+              <th>${article.regDateForPrint}</th>
             </tr>
              <tr>
               <th>수정날짜</th>
-              <th>${article.updateDate.substring(2, 16)}</th>
+              <th>${article.updateDateForPrint}</th>
             </tr>
                 <tr>
               <th>제목</th>
@@ -39,10 +39,12 @@
       </table>
     </div>
     <div class="btns">
-    <button class="btn-text-link" type="button" onclick="history.back();">뒤로가기</button>
-    <a class="btn-text-link" href="../article/modify?id=${article.id}">게시물 수정</a>
+    <button class="btn btn-link" type="button" onclick="history.back();">뒤로가기</button>
+    <c:if test="${article.exta__actorCanModify}">
+    <a class="btn btn-link" href="../article/modify?id=${article.id}">게시물 수정</a>
+    </c:if>
     <c:if test="${article.exta__actorCanDelete}">
-    <a class="btn-text-link" onclick="if (confirm('정말 삭제하시겠습니까?')==false)return false;" href="../article/delete?id=${article.id}">게시물 삭제</a>
+    <a class="btn btn-link" onclick="if (confirm('정말 삭제하시겠습니까?')==false)return false;" href="../article/delete?id=${article.id}">게시물 삭제</a>
     </c:if>
     </div>
   </div>
