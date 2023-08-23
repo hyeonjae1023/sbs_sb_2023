@@ -50,4 +50,15 @@ public interface ArticleRepository {
 //	@Select("SELECT LAST_INSERT_ID();")
 	public int getLastArticleId();
 
+	@Select("""
+			<script>
+			SELECT COUNT(*) AS cnt
+			FROM article AS A
+			<if test="board != 0">
+			WHERE A.boardId = #{boardId}
+			</if>
+			</script>
+			""")
+	public int getArticleCounts(@Param("boardId") int boardId);
+
 }

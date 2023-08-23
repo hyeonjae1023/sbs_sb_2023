@@ -85,4 +85,8 @@ public class ArticleService {
 			
 				return ResultData.from("S-1","삭제 가능합니다.");
 			}
+
+		public int getArticleCounts(int boardId) {
+			return articleRepository.getArticleCounts(boardId);
+		}
 }
