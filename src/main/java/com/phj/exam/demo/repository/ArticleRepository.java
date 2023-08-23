@@ -52,13 +52,13 @@ public interface ArticleRepository {
 
 	@Select("""
 			<script>
-			SELECT COUNT(*) AS cnt
-			FROM article AS A
-			<if test="board != 0">
-			WHERE A.boardId = #{boardId}
-			</if>
+				SELECT COUNT(*) AS cnt
+				FROM article AS A
+				<if test="board != 0">
+				WHERE A.boardId = #{boardId}
+				</if>
 			</script>
-			""")
+			""") //parameter board? 오류 발생
 	public int getArticleCounts(@Param("boardId") int boardId);
 
 }
